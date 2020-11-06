@@ -6,11 +6,9 @@ const { registerValidation, loginValidation } = require('../validation');
 
 
 router.post('/register', async (req, res) => {
-
-
     //VALIDATE DATA BEFORE 
     const { error } = registerValidation(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.send(error.details[0]);
 
     //Check if user already exist
     const emailExist = await User.findOne({ email: req.body.email });
@@ -23,13 +21,17 @@ router.post('/register', async (req, res) => {
 
     //Create new user
     const user = new User({
-        name: req.body.name,
+        last_name: req.body.last_name,
+        first_name: req.body.first_name,
+        adresse: req.body.adresse,
+        city: req.body.city,
+        gender: req.body.gender,
         email: req.body.email,
         password: hashPassword,
     });
     try {
         const savedUser = user.save();
-        res.send({ user: user._id });
+        res.send({ user: user });
     } catch (err) {
         res.status(400).send(err)
     }
@@ -49,10 +51,13 @@ router.post('/login', async (req, res) => {
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if (!validPass) return res.status(400).send('Mauvais mot de passe');
 
+    
     //Create and assign a token
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
     res.header('auth-token', token).send(token);
-    res.send('Connecté')
+
+    const data = [user]
+    res.send(data)
 
 })
 
