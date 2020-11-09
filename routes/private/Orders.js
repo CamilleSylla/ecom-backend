@@ -3,7 +3,7 @@ const Orders = require('../../model/Order');
 
 
 //Ajouter un produit
-router.post('/orders', (req, res) => {
+router.post('/newOrders', (req, res) => {
     
     //Create new item
     const orders = new Orders({
@@ -21,5 +21,14 @@ router.post('/orders', (req, res) => {
         }
     }
 });
+router.get('/orders', (req,res) => {
+    Orders.find(function(err, orders){
+        if(err){
+            res.send(err)
+        }
+        res.json(orders)
+    })
+})
+
 
 module.exports = router;
