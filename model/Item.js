@@ -22,24 +22,8 @@ const itemSchema = new mongoose.Schema({
         max: 1024
     },
     sizes: {
-        type: [{
-            s: {
-                type: Number,
-                min:0,
-            },
-            m: {
-                type: Number,
-                min:0,
-            },
-            l: {
-                type: Number,
-                min:0,
-            },
-            xl: {
-                type: Number,
-                min:0,
-            }
-        }]
+            type: Array,
+            "default" : []
     },
     price: {
         type: Number,

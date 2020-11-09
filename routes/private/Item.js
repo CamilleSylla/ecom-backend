@@ -14,12 +14,7 @@ router.post('/produit', async (req, res) => {
         name: req.body.name,
         category: req.body.category,
         gender: req.body.gender,
-        sizes: [{
-            s: req.body.sizes[0].s,
-            m: req.body.sizes[0].m,
-            l: req.body.sizes[0].l,
-            xl: req.body.sizes[0].xl,
-        }],
+        sizes: req.body.sizes,
         price: req.body.price
     });
     try {
