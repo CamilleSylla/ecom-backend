@@ -15,7 +15,8 @@ router.post('/produit', async (req, res) => {
         category: req.body.category,
         gender: req.body.gender,
         sizes: req.body.sizes,
-        price: req.body.price
+        price: req.body.price,
+        image: req.body.image
     });
     try {
         const savedItem = item.save();

@@ -29,6 +29,10 @@ const itemSchema = new mongoose.Schema({
         type: Number,
         min:1,
     },
+    image: {
+        type: String,
+        require: true
+    }
 
 });
 

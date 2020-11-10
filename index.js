@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
+const multer = require('multer');
+const ejs = require('ejs');
+const path = require('path');
 
 
 //import routes
@@ -20,7 +23,6 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 
 //Middleware
 app.use(express.json());
-
 //route middleware
 
 app.use('/api/user', authRoute);
