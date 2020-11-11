@@ -28,4 +28,15 @@ router.post('/produit', async (req, res) => {
     }
 });
 
+router.delete('/produit/delete', async (req, res) => {
+    try {
+        const removeItem = await Item.remove({ _id: req.body.id });
+        res.send('Element supprimé')
+    }catch(err){
+        if(err){
+            res.status(400).send(err)
+        }
+    }
+})
+
 module.exports = router;
