@@ -30,12 +30,21 @@ router.post('/produit', async (req, res) => {
 
 router.delete('/produit/delete', async (req, res) => {
     try {
-        const removeItem = await Item.remove({ _id: req.body.id });
+        const removeItem = await Item.deleteOne({ _id: req.body.id });
         res.send('Element supprimé')
     }catch(err){
         if(err){
             res.status(400).send(err)
         }
+    }
+});
+
+router.patch('/produit/update', async(req,res) => {
+    try{
+    const updatedItem = await Item.updateOne({_id : req.body.id}, {$set: req.body})
+    res.json(updatedItem)
+    }catch(err){
+        res.json({message: err})
     }
 })
 
