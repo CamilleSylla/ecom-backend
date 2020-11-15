@@ -11,6 +11,7 @@ const path = require('path');
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/private/posts');
 const ItemRoute = require('./routes/private/Item');
+const MailRoute = require('./routes/private/Mail');
 const getItemRoute = require('./routes/getItem');
 const orderRoute = require('./routes/private/Orders');
 //Config
@@ -30,5 +31,6 @@ app.use('/api/posts', postRoute);
 app.use('/api/', ItemRoute);
 app.use('/api/', getItemRoute);
 app.use('/api/', orderRoute);
+app.use('/api/', MailRoute);
 
 app.listen(5000, () => console.log('server is runnig'));
