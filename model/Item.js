@@ -19,7 +19,13 @@ const itemSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 6,
-        max: 1024
+        max: 255
+    },
+    brand: {
+        type: String,
+        required: true,
+        min: 6,
+        max: 255
     },
     sizes: {
             type: Array,

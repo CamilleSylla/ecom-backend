@@ -14,6 +14,7 @@ router.post('/produit', async (req, res) => {
         name: req.body.name,
         category: req.body.category,
         gender: req.body.gender,
+        brand: req.body.brand,
         sizes: req.body.sizes,
         price: req.body.price,
         image: req.body.image
