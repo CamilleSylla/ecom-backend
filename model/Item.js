@@ -27,9 +27,33 @@ const itemSchema = new mongoose.Schema({
         min: 6,
         max: 255
     },
-    sizes: {
-            type: Array,
-            "default" : []
+    s: {
+            type: Number,
+            "default" : 0,
+            required: true,
+            min: 0,
+        max: 10000
+    },
+    m: {
+            type: Number,
+            "default" : 0,
+            required: true,
+            min: 0,
+        max: 10000
+    },
+    l: {
+            type: Number,
+            "default" : 0,
+            required: true,
+            min: 0,
+        max: 10000
+    },
+    xl: {
+            type: Number,
+            "default" : 0,
+            required: true,
+            min: 0,
+        max: 10000
     },
     price: {
         type: Number,
@@ -38,7 +62,13 @@ const itemSchema = new mongoose.Schema({
     image: {
         type: String,
         require: true
-    }
+    },
+    description: {
+        type: String,
+        required: true,
+        min: 6,
+        max: 10000
+    },
 
 });
 

@@ -15,9 +15,13 @@ router.post('/produit', async (req, res) => {
         category: req.body.category,
         gender: req.body.gender,
         brand: req.body.brand,
-        sizes: req.body.sizes,
+        s: req.body.s,
+        m: req.body.m,
+        l: req.body.l,
+        xl: req.body.xl,
         price: req.body.price,
-        image: req.body.image
+        image: req.body.image,
+        description: req.body.description
     });
     try {
         const savedItem = item.save();
