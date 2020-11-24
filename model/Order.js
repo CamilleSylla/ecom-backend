@@ -3,7 +3,31 @@ const mongoose = require('mongoose');
 
 const ordersSchema = new mongoose.Schema({
 
-    name: {
+    last_name: {
+        type: String,
+        required: true,
+        min: 4,
+        max: 255
+    },
+    first_name: {
+        type: String,
+        required: true,
+        min: 4,
+        max: 255
+    },
+    email: {
+        type: String,
+        required: true,
+        min: 4,
+        max: 255
+    },
+    adresse: {
+        type: String,
+        required: true,
+        min: 4,
+        max: 255
+    },
+    city: {
         type: String,
         required: true,
         min: 4,
@@ -19,7 +43,7 @@ const ordersSchema = new mongoose.Schema({
         "default": []
     },
     total:{
-        type: String,
+        type: Number,
         required: true
     },
     date: {
