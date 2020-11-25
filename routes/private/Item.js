@@ -19,6 +19,7 @@ router.post('/produit', async (req, res) => {
         m: req.body.m,
         l: req.body.l,
         xl: req.body.xl,
+        unique: req.body.unique,
         price: req.body.price,
         image: req.body.image,
         description: req.body.description

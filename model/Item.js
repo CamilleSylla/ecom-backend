@@ -29,32 +29,29 @@ const itemSchema = new mongoose.Schema({
     },
     s: {
             type: Number,
-            "default" : 0,
-            required: true,
             min: 0,
         max: 10000
     },
     m: {
             type: Number,
-            "default" : 0,
-            required: true,
             min: 0,
         max: 10000
     },
     l: {
             type: Number,
-            "default" : 0,
-            required: true,
             min: 0,
         max: 10000
     },
     xl: {
             type: Number,
-            "default" : 0,
-            required: true,
             min: 0,
         max: 10000
     },
+    unique: {
+        type: Number,
+        min: 0,
+    max: 10000
+},
     price: {
         type: Number,
         min:1,
