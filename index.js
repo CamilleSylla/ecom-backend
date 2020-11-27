@@ -18,7 +18,7 @@ const orderRoute = require('./routes/private/Orders');
 dotenv.config();
 
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.PORT, { useNewUrlParser: true }, () => {
     console.log('connected to db');
 })
 
