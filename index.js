@@ -18,7 +18,7 @@ const orderRoute = require('./routes/private/Orders');
 dotenv.config();
 
 //Connect to DB
-mongoose.connect(process.env.PORT, { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('connected to db');
 })
 
@@ -33,4 +33,4 @@ app.use('/api/', getItemRoute);
 app.use('/api/', orderRoute);
 app.use('/api/', MailRoute);
 
-app.listen(5000, () => console.log('server is runnig'));
+app.listen(process.env.PORT || 5000, () => console.log('server is runnig'));
