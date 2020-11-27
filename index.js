@@ -5,6 +5,10 @@ const mongoose = require('mongoose')
 var cors = require('cors')
 
 
+//Middleware
+app.use(cors())
+app.use(express.json());
+
 //import routes
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/private/posts');
@@ -20,9 +24,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('connected to db');
 })
 
-//Middleware
-app.use(cors())
-app.use(express.json());
+
 //route middleware
 
 app.use('/api/user', authRoute);
