@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose')
 var cors = require('cors')
 
-
 //Middleware
 app.use(cors())
 app.use(express.json());
@@ -16,6 +15,8 @@ const ItemRoute = require('./routes/private/Item');
 const MailRoute = require('./routes/private/Mail');
 const getItemRoute = require('./routes/getItem');
 const orderRoute = require('./routes/private/Orders');
+const getPro = require('./routes/pers')
+const addPro = require('./routes/private/persoPriv')
 //Config
 dotenv.config();
 
@@ -23,7 +24,6 @@ dotenv.config();
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('connected to db');
 })
-
 
 //route middleware
 
@@ -33,5 +33,7 @@ app.use('/api/', ItemRoute);
 app.use('/api/', getItemRoute);
 app.use('/api/', orderRoute);
 app.use('/api/', MailRoute);
+app.use('/api/', getPro);
+app.use('/api/', addPro);
 
 app.listen(process.env.PORT || 5000, () => console.log('server is runnig'));
